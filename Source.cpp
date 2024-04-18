@@ -1,11 +1,12 @@
 #include <iostream>
+
 using namespace std;
 
 
 int main() {
 	const int MAX_STUDENTS = 20;
-	double scores[MAX_STUDENTS];
-	int input_students;
+	int scores[MAX_STUDENTS];
+	double input_students;
 
 	cout << "Number of students: ";
 	cin >> input_students;
@@ -15,17 +16,17 @@ int main() {
 		return 1;
 	}
 
-	for (int i = 1; i <= input_students; i++) {
+	for (int i = 0; i <= input_students -1; i++) {
 
-		cout << "Enter score #" << i << ": " << endl;
-		cin >> scores[i];
+		cout << "Enter score #" << i +1  << ": ";
+		cin >> scores[i]; cout << endl;
 	}
 
-	int highest = scores[0];
 	int lowest = scores[0];
-	double total = scores[0];
+	int highest = scores[0];
+	int total = scores[0];
 
-	for (int i = 1; i <= input_students; i++) {
+	for (int i = 1; i < input_students; i++) {
 		if (scores[i] > highest) {
 			highest = scores[i];
 		}
@@ -34,4 +35,12 @@ int main() {
 		}
 		total += scores[i];
 	}
+
+	double average = total / input_students;
+
+	cout << "High: " << highest << endl;
+	cout << "Low: " << lowest << endl;
+	cout << "Average: " << average << endl;
+
+	return 0;
 }
